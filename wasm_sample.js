@@ -1585,6 +1585,11 @@ var _wasm_number_of_sequences = Module["_wasm_number_of_sequences"] = function()
 };
 
 /** @type {function(...*):?} */
+var _wasm_number_of_sequences_all = Module["_wasm_number_of_sequences_all"] = function() {
+  return (_wasm_number_of_sequences_all = Module["_wasm_number_of_sequences_all"] = Module["asm"]["wasm_number_of_sequences_all"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = function() {
   return (___errno_location = Module["___errno_location"] = Module["asm"]["__errno_location"]).apply(null, arguments);
 };
