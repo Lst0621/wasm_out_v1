@@ -1590,6 +1590,11 @@ var _wasm_number_of_sequences_all = Module["_wasm_number_of_sequences_all"] = fu
 };
 
 /** @type {function(...*):?} */
+var _wasm_get_gl_n_zm_size = Module["_wasm_get_gl_n_zm_size"] = function() {
+  return (_wasm_get_gl_n_zm_size = Module["_wasm_get_gl_n_zm_size"] = Module["asm"]["wasm_get_gl_n_zm_size"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = function() {
   return (___errno_location = Module["___errno_location"] = Module["asm"]["__errno_location"]).apply(null, arguments);
 };
@@ -1612,6 +1617,11 @@ var stackRestore = Module["stackRestore"] = function() {
 /** @type {function(...*):?} */
 var stackAlloc = Module["stackAlloc"] = function() {
   return (stackAlloc = Module["stackAlloc"] = Module["asm"]["stackAlloc"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var dynCall_iijj = Module["dynCall_iijj"] = function() {
+  return (dynCall_iijj = Module["dynCall_iijj"] = Module["asm"]["dynCall_iijj"]).apply(null, arguments);
 };
 
 
