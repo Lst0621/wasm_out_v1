@@ -4378,6 +4378,11 @@ var _wasm_get_gl_n_zm_size = Module["_wasm_get_gl_n_zm_size"] = function() {
 };
 
 /** @type {function(...*):?} */
+var _wasm_matrix_det = Module["_wasm_matrix_det"] = function() {
+  return (_wasm_matrix_det = Module["_wasm_matrix_det"] = Module["asm"]["wasm_matrix_det"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = function() {
   return (___errno_location = Module["___errno_location"] = Module["asm"]["__errno_location"]).apply(null, arguments);
 };
