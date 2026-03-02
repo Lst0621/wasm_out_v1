@@ -5,6 +5,7 @@ declare module "./wasm_sample" {
     export interface WasmSampleModule {
         _wasm_number_of_sequences(arr_ptr: number, arr_len: number, seq_ptr: number, seq_len: number): number;
         _wasm_number_of_sequences_all(arr_ptr: number, arr_len: number, sequence_ptr: number, seq_len: number): number;
+        _wasm_get_gl_n_zm_size(n: number, m: number): number;
     }
 
     const init: () => Promise<WasmSampleModule>;
