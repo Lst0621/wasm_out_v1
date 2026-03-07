@@ -3895,6 +3895,16 @@ var ASM_CONSTS = {
   }
   }
 
+  function _getentropy(buffer, size) {
+      if (!_getentropy.randomDevice) {
+        _getentropy.randomDevice = getRandomDevice();
+      }
+      for (var i = 0; i < size; i++) {
+        HEAP8[(((buffer)+(i))>>0)] = _getentropy.randomDevice();
+      }
+      return 0;
+    }
+
   function _setTempRet0(val) {
       setTempRet0(val);
     }
@@ -4353,6 +4363,7 @@ var asmLibraryArg = {
   "fd_read": _fd_read,
   "fd_seek": _fd_seek,
   "fd_write": _fd_write,
+  "getentropy": _getentropy,
   "setTempRet0": _setTempRet0,
   "strftime_l": _strftime_l
 };
@@ -4383,6 +4394,51 @@ var _wasm_matrix_det = Module["_wasm_matrix_det"] = function() {
 };
 
 /** @type {function(...*):?} */
+var _gol_create = Module["_gol_create"] = function() {
+  return (_gol_create = Module["_gol_create"] = Module["asm"]["gol_create"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_destroy = Module["_gol_destroy"] = function() {
+  return (_gol_destroy = Module["_gol_destroy"] = Module["asm"]["gol_destroy"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_init = Module["_gol_init"] = function() {
+  return (_gol_init = Module["_gol_init"] = Module["asm"]["gol_init"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_random_init = Module["_gol_random_init"] = function() {
+  return (_gol_random_init = Module["_gol_random_init"] = Module["asm"]["gol_random_init"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_random_init_seed = Module["_gol_random_init_seed"] = function() {
+  return (_gol_random_init_seed = Module["_gol_random_init_seed"] = Module["asm"]["gol_random_init_seed"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_get_seed = Module["_gol_get_seed"] = function() {
+  return (_gol_get_seed = Module["_gol_get_seed"] = Module["asm"]["gol_get_seed"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_evolve = Module["_gol_evolve"] = function() {
+  return (_gol_evolve = Module["_gol_evolve"] = Module["asm"]["gol_evolve"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_set_topology = Module["_gol_set_topology"] = function() {
+  return (_gol_set_topology = Module["_gol_set_topology"] = Module["asm"]["gol_set_topology"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_get_live_cells = Module["_gol_get_live_cells"] = function() {
+  return (_gol_get_live_cells = Module["_gol_get_live_cells"] = Module["asm"]["gol_get_live_cells"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = function() {
   return (___errno_location = Module["___errno_location"] = Module["asm"]["__errno_location"]).apply(null, arguments);
 };
@@ -4390,6 +4446,11 @@ var ___errno_location = Module["___errno_location"] = function() {
 /** @type {function(...*):?} */
 var _malloc = Module["_malloc"] = function() {
   return (_malloc = Module["_malloc"] = Module["asm"]["malloc"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _free = Module["_free"] = function() {
+  return (_free = Module["_free"] = Module["asm"]["free"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
