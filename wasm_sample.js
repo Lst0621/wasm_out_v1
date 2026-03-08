@@ -4439,6 +4439,61 @@ var _gol_get_live_cells = Module["_gol_get_live_cells"] = function() {
 };
 
 /** @type {function(...*):?} */
+var _lr_create = Module["_lr_create"] = function() {
+  return (_lr_create = Module["_lr_create"] = Module["asm"]["lr_create"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _lr_destroy = Module["_lr_destroy"] = function() {
+  return (_lr_destroy = Module["_lr_destroy"] = Module["asm"]["lr_destroy"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _lr_order = Module["_lr_order"] = function() {
+  return (_lr_order = Module["_lr_order"] = Module["asm"]["lr_order"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _lr_evaluate = Module["_lr_evaluate"] = function() {
+  return (_lr_evaluate = Module["_lr_evaluate"] = Module["asm"]["lr_evaluate"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _lr_characteristic_polynomial = Module["_lr_characteristic_polynomial"] = function() {
+  return (_lr_characteristic_polynomial = Module["_lr_characteristic_polynomial"] = Module["asm"]["lr_characteristic_polynomial"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _lr_transition_matrix_size = Module["_lr_transition_matrix_size"] = function() {
+  return (_lr_transition_matrix_size = Module["_lr_transition_matrix_size"] = Module["asm"]["lr_transition_matrix_size"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _lr_transition_matrix_data = Module["_lr_transition_matrix_data"] = function() {
+  return (_lr_transition_matrix_data = Module["_lr_transition_matrix_data"] = Module["asm"]["lr_transition_matrix_data"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _lr_evaluate_poly_at_matrix = Module["_lr_evaluate_poly_at_matrix"] = function() {
+  return (_lr_evaluate_poly_at_matrix = Module["_lr_evaluate_poly_at_matrix"] = Module["asm"]["lr_evaluate_poly_at_matrix"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_matrix_power = Module["_wasm_matrix_power"] = function() {
+  return (_wasm_matrix_power = Module["_wasm_matrix_power"] = Module["asm"]["wasm_matrix_power"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_matrix_times_const = Module["_wasm_matrix_times_const"] = function() {
+  return (_wasm_matrix_times_const = Module["_wasm_matrix_times_const"] = Module["asm"]["wasm_matrix_times_const"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_matrix_add = Module["_wasm_matrix_add"] = function() {
+  return (_wasm_matrix_add = Module["_wasm_matrix_add"] = Module["asm"]["wasm_matrix_add"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = function() {
   return (___errno_location = Module["___errno_location"] = Module["asm"]["__errno_location"]).apply(null, arguments);
 };
