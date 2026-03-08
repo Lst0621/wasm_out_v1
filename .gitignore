@@ -4,3 +4,5 @@ Makefile
 CMakeFiles
 .cmake
 Testing
+compile_commands.json
+.cache
