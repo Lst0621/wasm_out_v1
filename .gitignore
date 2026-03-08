@@ -6,3 +6,4 @@ CMakeFiles
 Testing
 compile_commands.json
 .cache
+*.a
