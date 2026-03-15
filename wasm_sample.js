@@ -4494,6 +4494,66 @@ var _wasm_matrix_add = Module["_wasm_matrix_add"] = function() {
 };
 
 /** @type {function(...*):?} */
+var _bars_game_create = Module["_bars_game_create"] = function() {
+  return (_bars_game_create = Module["_bars_game_create"] = Module["asm"]["bars_game_create"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_destroy = Module["_bars_game_destroy"] = function() {
+  return (_bars_game_destroy = Module["_bars_game_destroy"] = Module["asm"]["bars_game_destroy"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_set_seed = Module["_bars_game_set_seed"] = function() {
+  return (_bars_game_set_seed = Module["_bars_game_set_seed"] = Module["asm"]["bars_game_set_seed"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_init = Module["_bars_game_init"] = function() {
+  return (_bars_game_init = Module["_bars_game_init"] = Module["asm"]["bars_game_init"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_get_state = Module["_bars_game_get_state"] = function() {
+  return (_bars_game_get_state = Module["_bars_game_get_state"] = Module["asm"]["bars_game_get_state"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_get_future_state = Module["_bars_game_get_future_state"] = function() {
+  return (_bars_game_get_future_state = Module["_bars_game_get_future_state"] = Module["asm"]["bars_game_get_future_state"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_apply_choice = Module["_bars_game_apply_choice"] = function() {
+  return (_bars_game_apply_choice = Module["_bars_game_apply_choice"] = Module["asm"]["bars_game_apply_choice"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_is_ended = Module["_bars_game_is_ended"] = function() {
+  return (_bars_game_is_ended = Module["_bars_game_is_ended"] = Module["asm"]["bars_game_is_ended"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_state_size = Module["_bars_game_state_size"] = function() {
+  return (_bars_game_state_size = Module["_bars_game_state_size"] = Module["asm"]["bars_game_state_size"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_num_choices = Module["_bars_game_num_choices"] = function() {
+  return (_bars_game_num_choices = Module["_bars_game_num_choices"] = Module["asm"]["bars_game_num_choices"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_min_val = Module["_bars_game_min_val"] = function() {
+  return (_bars_game_min_val = Module["_bars_game_min_val"] = Module["asm"]["bars_game_min_val"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _bars_game_max_val = Module["_bars_game_max_val"] = function() {
+  return (_bars_game_max_val = Module["_bars_game_max_val"] = Module["asm"]["bars_game_max_val"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = function() {
   return (___errno_location = Module["___errno_location"] = Module["asm"]["__errno_location"]).apply(null, arguments);
 };
