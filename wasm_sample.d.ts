@@ -43,6 +43,7 @@ declare module "./wasm_sample" {
         _free(ptr: number): void;
     }
 
-    const init: () => Promise<WasmSampleModule>;
+    /** Optional Module overrides; e.g. { wasmBinary } for Node to avoid fetch. */
+    const init: (moduleOverrides?: { wasmBinary?: Buffer | Uint8Array }) => Promise<WasmSampleModule>;
     export default init;
 }
