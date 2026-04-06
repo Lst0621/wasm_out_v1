@@ -13,7 +13,10 @@ declare module "./wasm_sample" {
         _wasm_number_of_sequences(arr_ptr: number, arr_len: number, seq_ptr: number, seq_len: number): number;
         _wasm_number_of_sequences_all(arr_ptr: number, arr_len: number, sequence_ptr: number, seq_len: number): number;
         _wasm_get_gl_n_zm_size(n: number, m: number): number;
+        _wasm_get_gl_n_zm(n: number, m: number, out_count_ptr: number): number;
+        _wasm_is_matrix_group(data_ptr: number, count: number, n: number, modulus: number): number;
         _wasm_matrix_det(data_ptr: number, n: number): number;
+        _wasm_matrix_inverse_mod(data_ptr: number, n: number, m: number, out_ptr: number): void;
         _gol_create(size: number): number;
         _gol_destroy(handle: number): void;
         _gol_init(handle: number): void;

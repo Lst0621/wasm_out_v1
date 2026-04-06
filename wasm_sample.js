@@ -4389,8 +4389,28 @@ var _wasm_get_gl_n_zm_size = Module["_wasm_get_gl_n_zm_size"] = function() {
 };
 
 /** @type {function(...*):?} */
+var _wasm_get_gl_n_zm = Module["_wasm_get_gl_n_zm"] = function() {
+  return (_wasm_get_gl_n_zm = Module["_wasm_get_gl_n_zm"] = Module["asm"]["wasm_get_gl_n_zm"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _malloc = Module["_malloc"] = function() {
+  return (_malloc = Module["_malloc"] = Module["asm"]["malloc"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_is_matrix_group = Module["_wasm_is_matrix_group"] = function() {
+  return (_wasm_is_matrix_group = Module["_wasm_is_matrix_group"] = Module["asm"]["wasm_is_matrix_group"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var _wasm_matrix_det = Module["_wasm_matrix_det"] = function() {
   return (_wasm_matrix_det = Module["_wasm_matrix_det"] = Module["asm"]["wasm_matrix_det"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_matrix_inverse_mod = Module["_wasm_matrix_inverse_mod"] = function() {
+  return (_wasm_matrix_inverse_mod = Module["_wasm_matrix_inverse_mod"] = Module["asm"]["wasm_matrix_inverse_mod"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
@@ -4556,11 +4576,6 @@ var _bars_game_max_val = Module["_bars_game_max_val"] = function() {
 /** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = function() {
   return (___errno_location = Module["___errno_location"] = Module["asm"]["__errno_location"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _malloc = Module["_malloc"] = function() {
-  return (_malloc = Module["_malloc"] = Module["asm"]["malloc"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
