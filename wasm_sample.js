@@ -4574,6 +4574,21 @@ var _bars_game_max_val = Module["_bars_game_max_val"] = function() {
 };
 
 /** @type {function(...*):?} */
+var _wasm_graph_edge_count = Module["_wasm_graph_edge_count"] = function() {
+  return (_wasm_graph_edge_count = Module["_wasm_graph_edge_count"] = Module["asm"]["wasm_graph_edge_count"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_graph_all_pairs_bfs_distances = Module["_wasm_graph_all_pairs_bfs_distances"] = function() {
+  return (_wasm_graph_all_pairs_bfs_distances = Module["_wasm_graph_all_pairs_bfs_distances"] = Module["asm"]["wasm_graph_all_pairs_bfs_distances"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_graph_metric_dimension = Module["_wasm_graph_metric_dimension"] = function() {
+  return (_wasm_graph_metric_dimension = Module["_wasm_graph_metric_dimension"] = Module["asm"]["wasm_graph_metric_dimension"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = function() {
   return (___errno_location = Module["___errno_location"] = Module["asm"]["__errno_location"]).apply(null, arguments);
 };

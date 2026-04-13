@@ -54,6 +54,9 @@ declare module "./wasm_sample" {
         _bars_game_num_choices(handle: number): number;
         _bars_game_min_val(handle: number): number;
         _bars_game_max_val(handle: number): number;
+        _wasm_graph_edge_count(n: number, directed: number, adj01_ptr: number): number;
+        _wasm_graph_all_pairs_bfs_distances(n: number, directed: number, adj01_ptr: number, out_dist_ptr: number): void;
+        _wasm_graph_metric_dimension(n: number, adj01_ptr: number, out_dim_ptr: number, out_basis_ptr: number, basis_max: number): number;
         _malloc(size: number): number;
         _free(ptr: number): void;
     }
