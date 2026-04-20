@@ -1526,6 +1526,9 @@ var ASM_CONSTS = {
       abort('');
     }
 
+  var _emscripten_get_now;_emscripten_get_now = () => performance.now();
+  ;
+
   function _emscripten_memcpy_big(dest, src, num) {
       HEAPU8.copyWithin(dest, src, src + num);
     }
@@ -4355,6 +4358,7 @@ var asmLibraryArg = {
   "__cxa_allocate_exception": ___cxa_allocate_exception,
   "__cxa_throw": ___cxa_throw,
   "abort": _abort,
+  "emscripten_get_now": _emscripten_get_now,
   "emscripten_memcpy_big": _emscripten_memcpy_big,
   "emscripten_resize_heap": _emscripten_resize_heap,
   "environ_get": _environ_get,
@@ -4579,6 +4583,11 @@ var _wasm_graph_edge_count = Module["_wasm_graph_edge_count"] = function() {
 };
 
 /** @type {function(...*):?} */
+var _wasm_graph_randomize_undirected_adj01 = Module["_wasm_graph_randomize_undirected_adj01"] = function() {
+  return (_wasm_graph_randomize_undirected_adj01 = Module["_wasm_graph_randomize_undirected_adj01"] = Module["asm"]["wasm_graph_randomize_undirected_adj01"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var _wasm_graph_all_pairs_bfs_distances = Module["_wasm_graph_all_pairs_bfs_distances"] = function() {
   return (_wasm_graph_all_pairs_bfs_distances = Module["_wasm_graph_all_pairs_bfs_distances"] = Module["asm"]["wasm_graph_all_pairs_bfs_distances"]).apply(null, arguments);
 };
@@ -4586,6 +4595,46 @@ var _wasm_graph_all_pairs_bfs_distances = Module["_wasm_graph_all_pairs_bfs_dist
 /** @type {function(...*):?} */
 var _wasm_graph_metric_dimension = Module["_wasm_graph_metric_dimension"] = function() {
   return (_wasm_graph_metric_dimension = Module["_wasm_graph_metric_dimension"] = Module["asm"]["wasm_graph_metric_dimension"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_graph_resolving_subsets_from_dist = Module["_wasm_graph_resolving_subsets_from_dist"] = function() {
+  return (_wasm_graph_resolving_subsets_from_dist = Module["_wasm_graph_resolving_subsets_from_dist"] = Module["asm"]["wasm_graph_resolving_subsets_from_dist"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_graph_resolving_subsets_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_with_non_resolving_size_minus_one_from_dist"] = function() {
+  return (_wasm_graph_resolving_subsets_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_with_non_resolving_size_minus_one_from_dist"] = Module["asm"]["wasm_graph_resolving_subsets_with_non_resolving_size_minus_one_from_dist"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_graph_resolving_subsets_all_modes_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_all_modes_with_non_resolving_size_minus_one_from_dist"] = function() {
+  return (_wasm_graph_resolving_subsets_all_modes_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_all_modes_with_non_resolving_size_minus_one_from_dist"] = Module["asm"]["wasm_graph_resolving_subsets_all_modes_with_non_resolving_size_minus_one_from_dist"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_graph_resolving_subsets_all_modes_paginated_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_all_modes_paginated_with_non_resolving_size_minus_one_from_dist"] = function() {
+  return (_wasm_graph_resolving_subsets_all_modes_paginated_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_all_modes_paginated_with_non_resolving_size_minus_one_from_dist"] = Module["asm"]["wasm_graph_resolving_subsets_all_modes_paginated_with_non_resolving_size_minus_one_from_dist"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_graph_resolving_subsets_cache_create = Module["_wasm_graph_resolving_subsets_cache_create"] = function() {
+  return (_wasm_graph_resolving_subsets_cache_create = Module["_wasm_graph_resolving_subsets_cache_create"] = Module["asm"]["wasm_graph_resolving_subsets_cache_create"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_graph_resolving_subsets_cache_destroy = Module["_wasm_graph_resolving_subsets_cache_destroy"] = function() {
+  return (_wasm_graph_resolving_subsets_cache_destroy = Module["_wasm_graph_resolving_subsets_cache_destroy"] = Module["asm"]["wasm_graph_resolving_subsets_cache_destroy"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_graph_resolving_subsets_cache_set_graph = Module["_wasm_graph_resolving_subsets_cache_set_graph"] = function() {
+  return (_wasm_graph_resolving_subsets_cache_set_graph = Module["_wasm_graph_resolving_subsets_cache_set_graph"] = Module["asm"]["wasm_graph_resolving_subsets_cache_set_graph"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _wasm_graph_resolving_subsets_cache_get_page = Module["_wasm_graph_resolving_subsets_cache_get_page"] = function() {
+  return (_wasm_graph_resolving_subsets_cache_get_page = Module["_wasm_graph_resolving_subsets_cache_get_page"] = Module["asm"]["wasm_graph_resolving_subsets_cache_get_page"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
@@ -4614,13 +4663,13 @@ var stackAlloc = Module["stackAlloc"] = function() {
 };
 
 /** @type {function(...*):?} */
-var dynCall_viijii = Module["dynCall_viijii"] = function() {
-  return (dynCall_viijii = Module["dynCall_viijii"] = Module["asm"]["dynCall_viijii"]).apply(null, arguments);
+var dynCall_jiji = Module["dynCall_jiji"] = function() {
+  return (dynCall_jiji = Module["dynCall_jiji"] = Module["asm"]["dynCall_jiji"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
-var dynCall_jiji = Module["dynCall_jiji"] = function() {
-  return (dynCall_jiji = Module["dynCall_jiji"] = Module["asm"]["dynCall_jiji"]).apply(null, arguments);
+var dynCall_viijii = Module["dynCall_viijii"] = function() {
+  return (dynCall_viijii = Module["dynCall_viijii"] = Module["asm"]["dynCall_viijii"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
