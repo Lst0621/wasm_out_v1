@@ -4458,6 +4458,36 @@ var _gol_set_topology = Module["_gol_set_topology"] = function() {
 };
 
 /** @type {function(...*):?} */
+var _gol_set_wormhole_seed = Module["_gol_set_wormhole_seed"] = function() {
+  return (_gol_set_wormhole_seed = Module["_gol_set_wormhole_seed"] = Module["asm"]["gol_set_wormhole_seed"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_set_wormhole_count = Module["_gol_set_wormhole_count"] = function() {
+  return (_gol_set_wormhole_count = Module["_gol_set_wormhole_count"] = Module["asm"]["gol_set_wormhole_count"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_get_wormhole_edges = Module["_gol_get_wormhole_edges"] = function() {
+  return (_gol_get_wormhole_edges = Module["_gol_get_wormhole_edges"] = Module["asm"]["gol_get_wormhole_edges"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_set_cut_seed = Module["_gol_set_cut_seed"] = function() {
+  return (_gol_set_cut_seed = Module["_gol_set_cut_seed"] = Module["asm"]["gol_set_cut_seed"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_set_cut_count = Module["_gol_set_cut_count"] = function() {
+  return (_gol_set_cut_count = Module["_gol_set_cut_count"] = Module["asm"]["gol_set_cut_count"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _gol_get_cut_edges = Module["_gol_get_cut_edges"] = function() {
+  return (_gol_get_cut_edges = Module["_gol_get_cut_edges"] = Module["asm"]["gol_get_cut_edges"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var _gol_get_live_cells = Module["_gol_get_live_cells"] = function() {
   return (_gol_get_live_cells = Module["_gol_get_live_cells"] = Module["asm"]["gol_get_live_cells"]).apply(null, arguments);
 };

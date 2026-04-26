@@ -25,6 +25,12 @@ declare module "./wasm_sample" {
         _gol_get_seed(handle: number): number;
         _gol_evolve(handle: number): void;
         _gol_set_topology(handle: number, mode: number): void;
+        _gol_set_wormhole_seed(handle: number, seed: number): void;
+        _gol_set_wormhole_count(handle: number, count: number): void;
+        _gol_get_wormhole_edges(handle: number): number;
+        _gol_set_cut_seed(handle: number, seed: number): void;
+        _gol_set_cut_count(handle: number, count: number): void;
+        _gol_get_cut_edges(handle: number): number;
         _gol_get_live_cells(handle: number, out_xy_ptr: number, max_count: number): number;
         /** coeffs_ptr points to coeffs_len packed rationals (4*coeffs_len int32). */
         _lr_create(coeffs_ptr: number, coeffs_len: number, recursive_threshold: number): number;
