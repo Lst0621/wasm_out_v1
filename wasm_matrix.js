@@ -1190,13 +1190,13 @@ function isFileURI(filename) {
 // end include: URIUtils.js
 var wasmBinaryFile;
 if (Module['locateFile']) {
-  wasmBinaryFile = 'wasm_sample.wasm';
+  wasmBinaryFile = 'wasm_matrix.wasm';
   if (!isDataURI(wasmBinaryFile)) {
     wasmBinaryFile = locateFile(wasmBinaryFile);
   }
 } else {
   // Use bundler-friendly `new URL(..., import.meta.url)` pattern; works in browsers too.
-  wasmBinaryFile = new URL('wasm_sample.wasm', import.meta.url).toString();
+  wasmBinaryFile = new URL('wasm_matrix.wasm', import.meta.url).toString();
 }
 
 function getBinary(file) {
@@ -1525,9 +1525,6 @@ var ASM_CONSTS = {
   function _abort() {
       abort('');
     }
-
-  var _emscripten_get_now;_emscripten_get_now = () => performance.now();
-  ;
 
   function _emscripten_memcpy_big(dest, src, num) {
       HEAPU8.copyWithin(dest, src, src + num);
@@ -3898,16 +3895,6 @@ var ASM_CONSTS = {
   }
   }
 
-  function _getentropy(buffer, size) {
-      if (!_getentropy.randomDevice) {
-        _getentropy.randomDevice = getRandomDevice();
-      }
-      for (var i = 0; i < size; i++) {
-        HEAP8[(((buffer)+(i))>>0)] = _getentropy.randomDevice();
-      }
-      return 0;
-    }
-
   function _setTempRet0(val) {
       setTempRet0(val);
     }
@@ -4358,7 +4345,6 @@ var asmLibraryArg = {
   "__cxa_allocate_exception": ___cxa_allocate_exception,
   "__cxa_throw": ___cxa_throw,
   "abort": _abort,
-  "emscripten_get_now": _emscripten_get_now,
   "emscripten_memcpy_big": _emscripten_memcpy_big,
   "emscripten_resize_heap": _emscripten_resize_heap,
   "environ_get": _environ_get,
@@ -4367,7 +4353,6 @@ var asmLibraryArg = {
   "fd_read": _fd_read,
   "fd_seek": _fd_seek,
   "fd_write": _fd_write,
-  "getentropy": _getentropy,
   "setTempRet0": _setTempRet0,
   "strftime_l": _strftime_l
 };
@@ -4375,16 +4360,6 @@ var asm = createWasm();
 /** @type {function(...*):?} */
 var ___wasm_call_ctors = Module["___wasm_call_ctors"] = function() {
   return (___wasm_call_ctors = Module["___wasm_call_ctors"] = Module["asm"]["__wasm_call_ctors"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_number_of_sequences = Module["_wasm_number_of_sequences"] = function() {
-  return (_wasm_number_of_sequences = Module["_wasm_number_of_sequences"] = Module["asm"]["wasm_number_of_sequences"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_number_of_sequences_all = Module["_wasm_number_of_sequences_all"] = function() {
-  return (_wasm_number_of_sequences_all = Module["_wasm_number_of_sequences_all"] = Module["asm"]["wasm_number_of_sequences_all"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
@@ -4418,256 +4393,6 @@ var _wasm_matrix_inverse_mod = Module["_wasm_matrix_inverse_mod"] = function() {
 };
 
 /** @type {function(...*):?} */
-var _gol_create = Module["_gol_create"] = function() {
-  return (_gol_create = Module["_gol_create"] = Module["asm"]["gol_create"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_destroy = Module["_gol_destroy"] = function() {
-  return (_gol_destroy = Module["_gol_destroy"] = Module["asm"]["gol_destroy"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_init = Module["_gol_init"] = function() {
-  return (_gol_init = Module["_gol_init"] = Module["asm"]["gol_init"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_random_init = Module["_gol_random_init"] = function() {
-  return (_gol_random_init = Module["_gol_random_init"] = Module["asm"]["gol_random_init"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_random_init_seed = Module["_gol_random_init_seed"] = function() {
-  return (_gol_random_init_seed = Module["_gol_random_init_seed"] = Module["asm"]["gol_random_init_seed"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_get_seed = Module["_gol_get_seed"] = function() {
-  return (_gol_get_seed = Module["_gol_get_seed"] = Module["asm"]["gol_get_seed"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_evolve = Module["_gol_evolve"] = function() {
-  return (_gol_evolve = Module["_gol_evolve"] = Module["asm"]["gol_evolve"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_set_topology = Module["_gol_set_topology"] = function() {
-  return (_gol_set_topology = Module["_gol_set_topology"] = Module["asm"]["gol_set_topology"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_set_wormhole_seed = Module["_gol_set_wormhole_seed"] = function() {
-  return (_gol_set_wormhole_seed = Module["_gol_set_wormhole_seed"] = Module["asm"]["gol_set_wormhole_seed"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_set_wormhole_count = Module["_gol_set_wormhole_count"] = function() {
-  return (_gol_set_wormhole_count = Module["_gol_set_wormhole_count"] = Module["asm"]["gol_set_wormhole_count"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_get_wormhole_edges = Module["_gol_get_wormhole_edges"] = function() {
-  return (_gol_get_wormhole_edges = Module["_gol_get_wormhole_edges"] = Module["asm"]["gol_get_wormhole_edges"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_set_cut_seed = Module["_gol_set_cut_seed"] = function() {
-  return (_gol_set_cut_seed = Module["_gol_set_cut_seed"] = Module["asm"]["gol_set_cut_seed"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_set_cut_count = Module["_gol_set_cut_count"] = function() {
-  return (_gol_set_cut_count = Module["_gol_set_cut_count"] = Module["asm"]["gol_set_cut_count"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_get_cut_edges = Module["_gol_get_cut_edges"] = function() {
-  return (_gol_get_cut_edges = Module["_gol_get_cut_edges"] = Module["asm"]["gol_get_cut_edges"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _gol_get_live_cells = Module["_gol_get_live_cells"] = function() {
-  return (_gol_get_live_cells = Module["_gol_get_live_cells"] = Module["asm"]["gol_get_live_cells"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _lr_create = Module["_lr_create"] = function() {
-  return (_lr_create = Module["_lr_create"] = Module["asm"]["lr_create"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _lr_destroy = Module["_lr_destroy"] = function() {
-  return (_lr_destroy = Module["_lr_destroy"] = Module["asm"]["lr_destroy"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _lr_order = Module["_lr_order"] = function() {
-  return (_lr_order = Module["_lr_order"] = Module["asm"]["lr_order"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _lr_evaluate = Module["_lr_evaluate"] = function() {
-  return (_lr_evaluate = Module["_lr_evaluate"] = Module["asm"]["lr_evaluate"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _lr_characteristic_polynomial = Module["_lr_characteristic_polynomial"] = function() {
-  return (_lr_characteristic_polynomial = Module["_lr_characteristic_polynomial"] = Module["asm"]["lr_characteristic_polynomial"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _lr_transition_matrix_size = Module["_lr_transition_matrix_size"] = function() {
-  return (_lr_transition_matrix_size = Module["_lr_transition_matrix_size"] = Module["asm"]["lr_transition_matrix_size"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _lr_transition_matrix_data = Module["_lr_transition_matrix_data"] = function() {
-  return (_lr_transition_matrix_data = Module["_lr_transition_matrix_data"] = Module["asm"]["lr_transition_matrix_data"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _lr_evaluate_poly_at_matrix = Module["_lr_evaluate_poly_at_matrix"] = function() {
-  return (_lr_evaluate_poly_at_matrix = Module["_lr_evaluate_poly_at_matrix"] = Module["asm"]["lr_evaluate_poly_at_matrix"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_matrix_power = Module["_wasm_matrix_power"] = function() {
-  return (_wasm_matrix_power = Module["_wasm_matrix_power"] = Module["asm"]["wasm_matrix_power"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_matrix_times_const = Module["_wasm_matrix_times_const"] = function() {
-  return (_wasm_matrix_times_const = Module["_wasm_matrix_times_const"] = Module["asm"]["wasm_matrix_times_const"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_matrix_add = Module["_wasm_matrix_add"] = function() {
-  return (_wasm_matrix_add = Module["_wasm_matrix_add"] = Module["asm"]["wasm_matrix_add"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_create = Module["_bars_game_create"] = function() {
-  return (_bars_game_create = Module["_bars_game_create"] = Module["asm"]["bars_game_create"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_destroy = Module["_bars_game_destroy"] = function() {
-  return (_bars_game_destroy = Module["_bars_game_destroy"] = Module["asm"]["bars_game_destroy"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_set_seed = Module["_bars_game_set_seed"] = function() {
-  return (_bars_game_set_seed = Module["_bars_game_set_seed"] = Module["asm"]["bars_game_set_seed"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_init = Module["_bars_game_init"] = function() {
-  return (_bars_game_init = Module["_bars_game_init"] = Module["asm"]["bars_game_init"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_get_state = Module["_bars_game_get_state"] = function() {
-  return (_bars_game_get_state = Module["_bars_game_get_state"] = Module["asm"]["bars_game_get_state"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_get_future_state = Module["_bars_game_get_future_state"] = function() {
-  return (_bars_game_get_future_state = Module["_bars_game_get_future_state"] = Module["asm"]["bars_game_get_future_state"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_apply_choice = Module["_bars_game_apply_choice"] = function() {
-  return (_bars_game_apply_choice = Module["_bars_game_apply_choice"] = Module["asm"]["bars_game_apply_choice"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_is_ended = Module["_bars_game_is_ended"] = function() {
-  return (_bars_game_is_ended = Module["_bars_game_is_ended"] = Module["asm"]["bars_game_is_ended"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_state_size = Module["_bars_game_state_size"] = function() {
-  return (_bars_game_state_size = Module["_bars_game_state_size"] = Module["asm"]["bars_game_state_size"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_num_choices = Module["_bars_game_num_choices"] = function() {
-  return (_bars_game_num_choices = Module["_bars_game_num_choices"] = Module["asm"]["bars_game_num_choices"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_min_val = Module["_bars_game_min_val"] = function() {
-  return (_bars_game_min_val = Module["_bars_game_min_val"] = Module["asm"]["bars_game_min_val"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _bars_game_max_val = Module["_bars_game_max_val"] = function() {
-  return (_bars_game_max_val = Module["_bars_game_max_val"] = Module["asm"]["bars_game_max_val"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_edge_count = Module["_wasm_graph_edge_count"] = function() {
-  return (_wasm_graph_edge_count = Module["_wasm_graph_edge_count"] = Module["asm"]["wasm_graph_edge_count"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_randomize_undirected_adj01 = Module["_wasm_graph_randomize_undirected_adj01"] = function() {
-  return (_wasm_graph_randomize_undirected_adj01 = Module["_wasm_graph_randomize_undirected_adj01"] = Module["asm"]["wasm_graph_randomize_undirected_adj01"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_all_pairs_bfs_distances = Module["_wasm_graph_all_pairs_bfs_distances"] = function() {
-  return (_wasm_graph_all_pairs_bfs_distances = Module["_wasm_graph_all_pairs_bfs_distances"] = Module["asm"]["wasm_graph_all_pairs_bfs_distances"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_metric_dimension = Module["_wasm_graph_metric_dimension"] = function() {
-  return (_wasm_graph_metric_dimension = Module["_wasm_graph_metric_dimension"] = Module["asm"]["wasm_graph_metric_dimension"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_resolving_subsets_from_dist = Module["_wasm_graph_resolving_subsets_from_dist"] = function() {
-  return (_wasm_graph_resolving_subsets_from_dist = Module["_wasm_graph_resolving_subsets_from_dist"] = Module["asm"]["wasm_graph_resolving_subsets_from_dist"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_resolving_subsets_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_with_non_resolving_size_minus_one_from_dist"] = function() {
-  return (_wasm_graph_resolving_subsets_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_with_non_resolving_size_minus_one_from_dist"] = Module["asm"]["wasm_graph_resolving_subsets_with_non_resolving_size_minus_one_from_dist"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_resolving_subsets_all_modes_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_all_modes_with_non_resolving_size_minus_one_from_dist"] = function() {
-  return (_wasm_graph_resolving_subsets_all_modes_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_all_modes_with_non_resolving_size_minus_one_from_dist"] = Module["asm"]["wasm_graph_resolving_subsets_all_modes_with_non_resolving_size_minus_one_from_dist"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_resolving_subsets_all_modes_paginated_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_all_modes_paginated_with_non_resolving_size_minus_one_from_dist"] = function() {
-  return (_wasm_graph_resolving_subsets_all_modes_paginated_with_non_resolving_size_minus_one_from_dist = Module["_wasm_graph_resolving_subsets_all_modes_paginated_with_non_resolving_size_minus_one_from_dist"] = Module["asm"]["wasm_graph_resolving_subsets_all_modes_paginated_with_non_resolving_size_minus_one_from_dist"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_resolving_subsets_cache_create = Module["_wasm_graph_resolving_subsets_cache_create"] = function() {
-  return (_wasm_graph_resolving_subsets_cache_create = Module["_wasm_graph_resolving_subsets_cache_create"] = Module["asm"]["wasm_graph_resolving_subsets_cache_create"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_resolving_subsets_cache_destroy = Module["_wasm_graph_resolving_subsets_cache_destroy"] = function() {
-  return (_wasm_graph_resolving_subsets_cache_destroy = Module["_wasm_graph_resolving_subsets_cache_destroy"] = Module["asm"]["wasm_graph_resolving_subsets_cache_destroy"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_resolving_subsets_cache_set_graph = Module["_wasm_graph_resolving_subsets_cache_set_graph"] = function() {
-  return (_wasm_graph_resolving_subsets_cache_set_graph = Module["_wasm_graph_resolving_subsets_cache_set_graph"] = Module["asm"]["wasm_graph_resolving_subsets_cache_set_graph"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _wasm_graph_resolving_subsets_cache_get_page = Module["_wasm_graph_resolving_subsets_cache_get_page"] = function() {
-  return (_wasm_graph_resolving_subsets_cache_get_page = Module["_wasm_graph_resolving_subsets_cache_get_page"] = Module["asm"]["wasm_graph_resolving_subsets_cache_get_page"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = function() {
   return (___errno_location = Module["___errno_location"] = Module["asm"]["__errno_location"]).apply(null, arguments);
 };
@@ -4693,13 +4418,13 @@ var stackAlloc = Module["stackAlloc"] = function() {
 };
 
 /** @type {function(...*):?} */
-var dynCall_jiji = Module["dynCall_jiji"] = function() {
-  return (dynCall_jiji = Module["dynCall_jiji"] = Module["asm"]["dynCall_jiji"]).apply(null, arguments);
+var dynCall_viijii = Module["dynCall_viijii"] = function() {
+  return (dynCall_viijii = Module["dynCall_viijii"] = Module["asm"]["dynCall_viijii"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
-var dynCall_viijii = Module["dynCall_viijii"] = function() {
-  return (dynCall_viijii = Module["dynCall_viijii"] = Module["asm"]["dynCall_viijii"]).apply(null, arguments);
+var dynCall_jiji = Module["dynCall_jiji"] = function() {
+  return (dynCall_jiji = Module["dynCall_jiji"] = Module["asm"]["dynCall_jiji"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
